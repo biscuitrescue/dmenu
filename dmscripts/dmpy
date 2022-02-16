@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DMEDITOR="emacsclient -c -a emacs"
+
+rm -rf ~/.programs.txt
+for entry in ~/python/*
+do
+    # echo $entry >> ~/.programs.txt
+    echo $entry >> ~/.programs.txt
+done
+declare -a options=(
+    $(cat ~/.programs.txt)
+    "quit"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 10 -c -p 'Programs:')
+
+if [[ "$choice" == "quit" ]]; then
+    (notify-send Program Terminated) && exit
+elif [ "$choice" ];then
+    cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+    $DMEDITOR "$cfg"
+
+else
+    notify-send "Program terminated." && exit 1
+fi
+
