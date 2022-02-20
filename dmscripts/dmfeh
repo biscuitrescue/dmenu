@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cmd="feh --bg-scale"
+dire="/home/karttikeya/Pictures/Wallpapers"
+rm -rf ~/.wall.txt
+for entry in $dire/{*.png,*.jpg}
+do
+    echo $entry >> ~/.wall.txt
+done
+declare -a options=(
+    $(cat ~/.wall.txt)
+    "quit"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 7 -p 'Choose Wallpapers:')
+
+if [[ "$choice" == "quit" ]]; then
+    (notify-send Program Terminated) && exit
+elif [ "$choice" ]; then
+    feh --bg-scale ${choice}
+else
+    (notify-send Program Terminated) && exit 1
+fi

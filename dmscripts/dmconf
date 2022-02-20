@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DMEDITOR="emacsclient -c -a emacs"
+DMEDITOR="emacs"
 
 declare -a options=(
 "alacritty - $HOME/.config/alacritty/alacritty.yml"
 "bash = $HOME/.bashrc"
 "bspwm - $HOME/.config/bspwm/bspwmrc"
+"dmenu - $HOME/git/dmenu-5.0/config.def.h"
 "dunst - $HOME/.config/dunst/dunstrc"
-"dwm - $HOME/git/dwm/config.h"
+"dwm - $HOME/.config/dwm/config.def.h"
 "fish - $HOME/.config/fish/config.fish"
 "i3 - $HOME/.config/i3/config"
 "kitty - $HOME/.config/kitty/kitty.conf"
@@ -16,11 +17,14 @@ declare -a options=(
 "neovim (config) - $HOME/.config/nvim/init.vim"
 "picom - $HOME/.config/picom/picom.conf"
 "qtile - $HOME/.config/qtile/config.py"
+"st - $HOME/git/st/config.def.h"
 "sxhkd - $HOME/.config/sxhkd/sxhkdrc"
+"zprezto - $HOME/.zpreztorc"
+"zsh - $HOME/.zshrc"
 "quit"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 10 -c -p 'Configs:')
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 7 -p 'Configs:')
 
 if [[ "$choice" == "quit" ]]; then
 	echo "Program terminated." && exit 1
@@ -30,5 +34,5 @@ elif [ "$choice" ]; then
 	$DMEDITOR "$cfg"
 
 else
-	echo "Program terminated." && exit 1
+	notify-send "Program terminated." && exit 1
 fi
