@@ -2,7 +2,7 @@
 set -euo pipefail
 
 cmd="feh --bg-scale"
-dire="/home/karttikeya/Pictures/Wallpapers"
+dire="$HOME/Pictures/Wallpapers"
 rm -rf ~/.wall.txt
 for entry in $dire/{*.png,*.jpg}
 do
