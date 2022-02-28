@@ -4,7 +4,7 @@ set -euo pipefail
 cmd="feh --bg-scale"
 dire="$HOME/Pictures/Wallpapers"
 rm -rf ~/.wall.txt
-for entry in $dire/{*.png,*.jpg}
+for entry in $dire/*.png
 do
     echo $entry >> ~/.wall.txt
 done
@@ -13,7 +13,7 @@ declare -a options=(
     "quit"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 7 -p 'Choose Wallpapers:')
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -h 22 -l 7 -p 'Choose Wallpapers:')
 
 if [[ "$choice" == "quit" ]]; then
     (notify-send Program Terminated) && exit
