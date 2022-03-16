@@ -6,18 +6,18 @@ static int centered = 0;                    /* -c option; centers dmenu on scree
 static int min_width = 500;
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"Space mono for powerline:size=13"
+	"operator mono book:size=12"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#1b1c26" },
-	[SchemeSel] = { "#121212", "#aaeedd" },
-	[SchemeSelHighlight] = { "#0ee9af", "#1b1c26" },
-	[SchemeNormHighlight] = { "#0ee9af", "#1b1c26" },
+	[SchemeNorm] = { "#bbbbbb", "#1e1e2e" },
+	[SchemeSel] = { "#1e1e2e", "#f28fad" },
+	[SchemeSelHighlight] = { "#0ee9af", "#1e1e2e" },
+	[SchemeNormHighlight] = { "#0ee9af", "#1e1e2e" },
 	[SchemeOut] = { "#000000", "#00ffff" },
-	[SchemeMid] = { "#f3f4f5", "#2e3440" },
-	[SchemeHp] = { "#1b1c26", "#bc7cf7" }
+	[SchemeMid] = { "#f3f4f5", "#1e1e2e" },
+	[SchemeHp] = { "#1e1e2e", "#bc7cf7" }
 
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
