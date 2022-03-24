@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DMEDITOR="emacs"
-cd ~/python/
-
 rm -rf ~/.programs.txt
-for entry in ~/python/*
+
+for entry in ~/python/*.py
 do
-    # echo $entry >> ~/.programs.txt
     echo $entry >> ~/.programs.txt
 done
+
 declare -a options=(
     $(cat ~/.programs.txt)
     "quit"
@@ -21,7 +19,7 @@ if [[ "$choice" == "quit" ]]; then
     (notify-send Program Terminated) && exit
 elif [ "$choice" ];then
     cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
-    $DMEDITOR "$cfg"
+    python3 "$cfg"
 
 else
     notify-send "Program terminated." && exit 1

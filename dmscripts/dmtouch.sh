@@ -3,4 +3,4 @@ set -euo pipefail
 
 read file | dmenu -i -l -p 'File name: '
 
-DMEDITOR="emacs"
+DMEDITOR="neovide"
