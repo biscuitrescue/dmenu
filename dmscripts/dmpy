@@ -2,14 +2,19 @@
 set -euo pipefail
 
 DMEDITOR="emacs"
-cd ~/python/
+cd ~/lang/python/
 
 rm -rf ~/.programs.txt
-for entry in ~/python/*
+for entry in ~/lang/python/*
 do
     # echo $entry >> ~/.programs.txt
     echo $entry >> ~/.programs.txt
 done
+for entry in ~/lang/python/nogit
+do
+    echo $entry >> ~/.programs.txt
+done
+
 declare -a options=(
     $(cat ~/.programs.txt)
     "quit"
