@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cmd="python3 $HOME/scripts/switch.py"
+
+declare -a options=(
+"Dracula"
+"Everforest"
+"Frappe"
+"Latte"
+"Macchiato"
+"Mocha"
+"Nord"
+"Palenight"
+"quit"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 7 -p 'Configs:')
+
+if [[ "$choice" == "quit" ]]; then
+	echo "Program terminated." && exit 1
+
+elif [ "$choice" ]; then
+	cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+	$cmd "$cfg"
+
+else
+	notify-send "Program terminated." && exit 1
+fi
