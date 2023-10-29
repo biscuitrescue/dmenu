@@ -4,6 +4,7 @@ set -euo pipefail
 cmd="python3 $HOME/scripts/switch.py"
 
 declare -a options=(
+"Ashes"
 "Dracula"
 "Everforest"
 "Frappe"
@@ -11,6 +12,7 @@ declare -a options=(
 "Macchiato"
 "Mocha"
 "Nord"
+"One"
 "Palenight"
 "quit"
 )
