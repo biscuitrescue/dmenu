@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cmd="python3 $HOME/scripts/switch.py"
+cmd="switch.py"
 
 declare -a options=(
 "Ashes"
