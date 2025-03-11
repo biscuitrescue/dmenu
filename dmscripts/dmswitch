@@ -17,7 +17,7 @@ declare -a options=(
 "quit"
 )
 
-choice=$(printf '%s\n' "${options[@]}" | dmenu -i -l 7 -p 'Configs:')
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p 'Configs:')
 
 if [[ "$choice" == "quit" ]]; then
 	echo "Program terminated." && exit 1
