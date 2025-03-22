@@ -15,13 +15,13 @@ static const char *fonts[] = {
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#c7ccd1", "#1c2023" },
-	[SchemeSel] = { "#1c2023", "#97aec7" },
-	[SchemeSelHighlight] = { "#97aec7", "#1c2023" },
-	[SchemeNormHighlight] = { "#97aec7", "#1c2023" },
-	[SchemeOut] = { "#1c2023", "#00ffff" },
-	[SchemeMid] = { "#c7ccd1", "#1c2023" },
-	[SchemeHp] = { "#1c2023", "#ae97c7" }
+	[SchemeNorm] = { "#c5c9c5", "#181616" },
+	[SchemeSel] = { "#181616", "#8ba4b0" },
+	[SchemeSelHighlight] = { "#8ba4b0", "#181616" },
+	[SchemeNormHighlight] = { "#97aec7", "#181616" },
+	[SchemeOut] = { "#181616", "#00ffff" },
+	[SchemeMid] = { "#c5c9c5", "#181616" },
+	[SchemeHp] = { "#181616", "#938aa9" }
 
 };
 static const char worddelimiters[] = " ";
